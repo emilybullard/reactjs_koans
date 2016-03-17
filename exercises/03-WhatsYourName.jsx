@@ -77,19 +77,18 @@ class WhatsYourName extends React.Component {
   onNameChange(event) {
     // Huh... There's something wrong here...
     this.setState({name: event.target.value});
+    console.log(event.target.value)
   }
 
   render() {
-    var messageText;
-      if (this.state.name.length === 0) {
+    var messageText = "Hello " + this.state.name;
+      if (this.state.name.length <= 0) {
         messageText = "Hey there. Enter your name.";
-      } else {
-        messageText = this.state.name;
       }
 
     return (
       <div>
-        <p>Hello {this.state.name}</p>
+        <p>{messageText}</p>
         <input type="text" name="name" onChange={this.onNameChange} />
 
       </div>
